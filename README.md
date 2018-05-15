@@ -15,6 +15,6 @@ berada diteras rumah semelum itu player harus mencari senter terlebih
 dahulu.
 
 # Sensor
-- Gyro		= Untuk mengatur pandangan player.
-- Accel		= Untuk berinteraksi dengan objek.
-- Proximity	= Digunakan untuk mengerakkan player kedepan.
+- Gyro			= Untuk mengatur arah dari player.
+- Accel		= Untuk mengonttrol jauh dekat pandang (Field Of View).
+- Proximity	= Untuk berinteraksi dengan objek.
