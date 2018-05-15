@@ -1,4 +1,7 @@
 # Piranti-Final-Project
+# Nama Kelompok:
+	Muhammad Khoirur Rizal (4210151016)
+	Maul Huda Dirosussalam (4210151025)
 # Judul Game
 "Where Is It"
 
