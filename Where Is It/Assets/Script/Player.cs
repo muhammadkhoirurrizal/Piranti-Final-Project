@@ -2,46 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GyroScope : MonoBehaviour {
+public class Player : MonoBehaviour {
 
+    public GameObject camera;
 
-    //Gyroscope
-    private bool gyroEnabled;
-    private Gyroscope gyro;
-    private GameObject cameraContainer;
-    private Quaternion rot;
-
-	// Use this for initialization
-	void Start () {
-        cameraContainer = new GameObject("Camera Container");
-        cameraContainer.transform.position = transform.position;
-        transform.SetParent(cameraContainer.transform);
-
-        gyroEnabled = EnableGyro();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (gyroEnabled)
-        {
-            transform.localRotation = gyro.attitude * rot;
-        }
-	}
-
-    private bool EnableGyro()
+    private void Start()
     {
-        if (SystemInfo.supportsGyroscope)
+        Input.gyro.enabled = true;
+    }
+
+    private void Update()
+    {
+        camera.transform.Rotate(-Input.gyro.rotationRateUnbiased.x, 0, 0);
+        transform.Rotate(0, -Input.gyro.rotationRateUnbiased.y, 0);
+        if (Input.GetMouseButton(0))
         {
-            gyro = Input.gyro;
-            gyro.enabled = true;
-
-            cameraContainer.transform.rotation = Quaternion.Euler(90, 90, 0);
-            rot = new Quaternion(0, 0, 1, 0);
-
-            return true;
+            transform.Translate(Vector3.forward * 6*Time.deltaTime);
         }
-
-
-        return false;
     }
 }
